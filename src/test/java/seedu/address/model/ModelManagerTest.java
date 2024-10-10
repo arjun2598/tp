@@ -12,11 +12,15 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Arrays;
 
+import javafx.collections.ObservableList;
+import javafx.collections.transformation.SortedList;
 import org.junit.jupiter.api.Test;
 
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.model.person.NameContainsKeywordsPredicate;
+import seedu.address.model.person.Priority;
 import seedu.address.testutil.AddressBookBuilder;
+import seedu.address.model.person.Person;
 
 public class ModelManagerTest {
 
@@ -91,6 +95,11 @@ public class ModelManagerTest {
     @Test
     public void getFilteredPersonList_modifyList_throwsUnsupportedOperationException() {
         assertThrows(UnsupportedOperationException.class, () -> modelManager.getFilteredPersonList().remove(0));
+    }
+
+    @Test
+    public void getSortedPersonList_modifyList_throwsUnsupportedOperationException() {
+        assertThrows(UnsupportedOperationException.class, () -> modelManager.getSortedPersonList().remove(0));
     }
 
     @Test
